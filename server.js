@@ -79,7 +79,10 @@ app.post("/webhook", async (req, res) => {
     }
 
     const numeroUsuario = mensaje.from;
-
+    
+if (numeroUsuario !== "51930887441") {
+  return;
+}
     if (mensaje.type === "text") {
 
       const textoRecibido = mensaje.text?.body || "";
