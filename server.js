@@ -14,7 +14,44 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 app.get("/", (req, res) => {
   res.send("Asistente IA WhatsApp funcionando correctamente.");
 });
+// Política de privacidad
+app.get("/privacy", (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Política de Privacidad - Asistente IA</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6;">
+      <h1>Política de Privacidad</h1>
 
+      <p><strong>Asistente IA</strong> es un servicio de atención automatizada mediante WhatsApp.</p>
+
+      <h2>Información que podemos recibir</h2>
+      <p>El servicio puede recibir información que el usuario proporciona voluntariamente mediante mensajes de WhatsApp, como consultas, solicitudes y datos necesarios para atender su solicitud.</p>
+
+      <h2>Uso de la información</h2>
+      <p>La información recibida se utiliza para responder consultas, proporcionar asistencia y gestionar las solicitudes realizadas por el usuario.</p>
+
+      <h2>Procesamiento mediante inteligencia artificial</h2>
+      <p>Los mensajes pueden ser procesados mediante servicios de inteligencia artificial para generar respuestas automatizadas.</p>
+
+      <h2>Protección de la información</h2>
+      <p>Tomamos medidas razonables para proteger la información procesada por el servicio y evitar accesos no autorizados.</p>
+
+      <h2>Eliminación de datos</h2>
+      <p>Si deseas solicitar la eliminación de información relacionada con tus interacciones, puedes contactar al responsable mediante el correo electrónico proporcionado en la configuración de la aplicación.</p>
+
+      <h2>Contacto</h2>
+      <p>Correo electrónico: alanvelaprueba1@gmail.com</p>
+
+      <p>Última actualización: septiembre de 2026.</p>
+    </body>
+    </html>
+  `);
+});
 // Verificación del webhook de Meta
 app.get("/webhook", (req, res) => {
   const mode = req.query["hub.mode"];
